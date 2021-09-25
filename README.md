@@ -1,6 +1,6 @@
 # LootRarity Summon/Adventure/Cellar bot
 
-
+Forked from [https://github.com/blascokoa/LootRarityFarmer](this repo).
 Best practice is to use a VPS and put a cronjob for let it farm every day.
 
  1. Initialize new node project (npm init -y)
