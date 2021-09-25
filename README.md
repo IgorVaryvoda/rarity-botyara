@@ -1,5 +1,6 @@
 # LootRarity Summon/Adventure/Cellar bot
 
+
 Best practice is to use a VPS and put a cronjob for let it farm every day.
 
  1. Initialize new node project (npm init -y)
@@ -22,4 +23,4 @@ Note: The crontab config above will run the script every 5 minutes.
 Use under your responsibility. Feedback always appreciated.
 
 ---
-FTM Donations: 0xf2b8B1bA1E2Ab2e85f5108C620663C0F5c0B8285
+
