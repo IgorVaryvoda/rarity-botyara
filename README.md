@@ -4,7 +4,7 @@ Forked from [this repo](https://github.com/blascokoa/LootRarityFarmer).
 
 Best practice is to use a VPS & pm2.
 
- 1. clone the repo: https://github.com/IgorVaryvoda/rarity-botyara.git && cd rarity-botyara
+ 1. clone the repo: git clone https://github.com/IgorVaryvoda/rarity-botyara.git && cd rarity-botyara
  3. Run: npm install
  4. make a copy of `.env.example` file as `.env`
  5. Add private key where ``PVT_KEY`` in the ``.env`` file
