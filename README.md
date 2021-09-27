@@ -2,7 +2,7 @@
 
 Forked from [this repo](https://github.com/blascokoa/LootRarityFarmer).
 
-Best practice is to use a VPS & pm2.
+Best practice is to use a VPS & run forever with pm2.
 
  1. clone the repo: git clone https://github.com/IgorVaryvoda/rarity-botyara.git && cd rarity-botyara
  3. Run: npm install
