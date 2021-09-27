@@ -290,6 +290,7 @@ const main = async () => {
       "Gas Price is too damn high: %s",
       formatUnits(gasPrice, "gwei")
     );
+    setTimeout(main, 30000)
   } else {
     await farm();
     await cellar();

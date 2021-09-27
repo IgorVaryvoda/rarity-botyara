@@ -4,7 +4,7 @@ const fs = require('fs')
 var colors = require("colors");
 
 let keys = require("dotenv").config({ path: __dirname + "/.env" });
-const GAS_THRESHOLD = keys.parsed.GAS_THRESHOLD;
+const GAS_THRESHOLD = "130";
 const GAS_MULTIPLIER = parseFloat(keys.parsed.GAS_MULTIPLIER);
 // Provider
 const provider = new ethers.providers.JsonRpcProvider("https://rpc.ftm.tools/");
@@ -29,7 +29,6 @@ let minutes = date_ob.getMinutes();
 // current seconds
 let seconds = date_ob.getSeconds();
 
-let timeNow = year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds
 function gasChecker(gasPrice) {
   if (Number(formatUnits(gasPrice, "gwei")) < Number(GAS_THRESHOLD)) {
     return true;
@@ -37,12 +36,13 @@ function gasChecker(gasPrice) {
   return false;
 }
 async function checkGas() {
+  let timeNow = new Date();
   // get the data for the tx
   const gasPrice = await provider.getGasPrice();
   if (gasChecker(gasPrice)) {
 	console.log(timeNow + ";" + "%s".green + "; Good gas price!", formatUnits(gasPrice, "gwei"));
   } else {
-    console.log(timeNow + ";" + "%s".red + "; Shitty gas price!", formatUnits(gasPrice, "gwei"));
+    console.log(timeNow + ";" + "%s" + "; Shitty gas price!", formatUnits(gasPrice, "gwei"));
   }
 }
 setInterval(checkGas, 10000);
