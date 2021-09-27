@@ -8,7 +8,6 @@
 const ethers = require("ethers");
 const { parseUnits, formatUnits } = require("@ethersproject/units");
 var colors = require("colors");
-
 let keys = require("dotenv").config({ path: __dirname + "/.env" });
 const PVT_KEY = keys.parsed.PVT_KEY;
 const LOOT_MEMBERS = keys.parsed.LOOT_IDS.split(",").map(Number);
@@ -48,6 +47,9 @@ function gasChecker(gasPrice) {
   return false;
 }
 
+function timeout(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 async function adventure(id) {
   // get the data for the tx
   const gasPrice = await provider.getGasPrice();
@@ -166,10 +168,8 @@ async function claim_gold(id) {
     console.log("Damm! Gas too high! [%s]", formatUnits(gasPrice, "gwei"));
   }
 }
-
 const farm = async () => {
   for (let i = 0; i < LOOT_MEMBERS.length; i++) {
-
     try {
       // Time to farm checker
       const nextAdventureTime = await lootContract.adventurers_log(
@@ -290,7 +290,7 @@ const main = async () => {
       "Gas Price is too damn high: %s",
       formatUnits(gasPrice, "gwei")
     );
-    setTimeout(main, 30000)
+    setTimeout(main, 10000)
   } else {
     await farm();
     await cellar();

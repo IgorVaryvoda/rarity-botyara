@@ -1,7 +1,6 @@
 const ethers = require("ethers");
 const { parseUnits, formatUnits } = require("@ethersproject/units");
 const fs = require('fs')
-var colors = require("colors");
 
 let keys = require("dotenv").config({ path: __dirname + "/.env" });
 const GAS_THRESHOLD = "130";
@@ -37,10 +36,10 @@ function gasChecker(gasPrice) {
 }
 async function checkGas() {
   let timeNow = new Date();
-  // get the data for the tx
+  // get gas price
   const gasPrice = await provider.getGasPrice();
   if (gasChecker(gasPrice)) {
-	console.log(timeNow + ";" + "%s".green + "; Good gas price!", formatUnits(gasPrice, "gwei"));
+	console.log(timeNow + ";" + "%s" + "; Good gas price!", formatUnits(gasPrice, "gwei"));
   } else {
     console.log(timeNow + ";" + "%s" + "; Shitty gas price!", formatUnits(gasPrice, "gwei"));
   }
