@@ -1,4 +1,6 @@
-# LootRarity Experience Farmer
+# LootRarity Summon/Adventure/Cellar bot
+
+Forked from [this repo](https://github.com/blascokoa/LootRarityFarmer).
 
 Best practice is to use a VPS and put a cronjob for let it farm every day.
 
@@ -22,4 +24,4 @@ Note: The crontab config above will run the script every 5 minutes.
 Use under your responsibility. Feedback always appreciated.
 
 ---
-FTM Donations: 0xc616E565A17BC8c158619eD0090eC83972E91F92
+
